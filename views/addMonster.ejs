@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+     <% include partials/header.ejs %>
+  </head>
+  <body>
+    <div class="monsterContainer">
+    <a href="/" class="back-btn">Back</a>
+      <h1 class="statsTitle">Create New Monster Form Page</h1>
+      <p class="statsTitle">
+        All you have to do is add a name for your character and the specific level of the character.
+      </p>
+      <form method="post" action="/addMonster">
+        <div class="share50">
+          Name:
+          <input type="text" name="name" />
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="share50">
+          Level:
+          <input type="text" name="level"/>
+        </div>
+        <div class="">
+          <input type="submit" class="btn btn-info" value="Add Monster"></input>
+        </div>
+        <div class="clearfix"></div>
+      </form>
+     
+      </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+When Monster is Created GOTO MOnster PAge!
+Only allow 1 of the current name.
+but allow to delete it.
+
+More Hardcore MONSTER API!
+	-more classes,
+		 attacks, spells, loot! oh my

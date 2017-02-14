@@ -1,0 +1,154 @@
+$primary-color: #2863c1;
+$light-blue: #2E4974;
+$dark-blue:#032C6C;
+$medium-blue: #103570;
+$gray: #cfcfd1;
+$light-gray: #e5e5e5;
+
+$article-gray: #888;
+body{
+	background-color: $gray;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 500;
+}
+.clearfix{
+	clear: both;
+	display: block;
+	height: 1px;
+	width: 100%;
+}
+.monsterContainer{
+	width: 900px;
+	margin: auto;
+	background: $light-gray;
+	padding: 20px;
+	border-radius: 3px;
+}
+.statsContainerChar{
+	margin-top: 40px;	
+	padding-top: 10px;
+	background: $article-gray;
+	border-radius: 4px;
+	box-sizing: border-box;
+	color: $light-gray;
+	padding-bottom: 10px;
+}
+.statsContainerInput{
+	margin-top: 40px;	
+	padding-top: 10px;
+	background: $article-gray;
+	border-radius: 4px;
+	box-sizing: border-box;
+	color: $light-gray;
+	padding-bottom: 10px;
+	input[type=text]{
+		color: #222;
+	}
+}
+.single-char-state-level-type{
+	padding-bottom: 40px;
+}
+.statsTitle{
+	text-align: center;
+}
+.pretty-inputs{
+	input[type=text]{
+		max-width: 50px;
+	}
+}
+.longer-pretty-inputs{
+	input[type=text]{
+		max-width: 100px;
+		text-align: center;
+	}
+}
+.stats-main-title{
+	margin: 40px;
+}
+.share50{
+	display: inline-block;
+	float: left;
+	text-align: center;
+	width: 50%;
+	box-sizing: border-box;
+}
+.share30{
+	list-style: none;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	width: 32%;
+	box-sizing: border-box;
+}
+.share30right{
+	list-style: none;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	width: 32%;
+	box-sizing: border-box;
+	margin: auto;
+	input[type=text]{
+		text-align: center;
+	}
+}
+.back-btn{
+	background-color:$dark-blue;
+	color: $light-gray;
+	padding: 4px 12px;
+	border-radius: 4px;
+	font-weight: 700;
+}
+.edit-btn{
+	background-color:$dark-blue;
+	color: $light-gray;
+	padding: 4px 12px;
+	border-radius: 4px;
+	font-weight: 700;
+}
+.delete-btn{
+	background-color:#b2103e;
+	color: $light-gray;
+	padding: 4px 12px;
+	border-radius: 4px;
+	font-weight: 700;
+}
+.single_container{
+	margin-top: 10px;
+}
+.listNone{
+	list-style: none;
+}
+.listMainContainer{
+	margin: auto;
+	background-color: $article-gray;
+	border-radius: 4px;
+	box-sizing: border-box;
+	color: $light-gray;
+	padding-bottom: 10px;
+	h2{
+		padding: 20px;
+	}
+}
+.listMainDisplay{
+	border: 1px solid black;
+	margin-left:1%;
+	li{
+		a{
+			color: $light-blue;
+			font-size: 22px;
+		}
+	}
+}
+.error_msg{
+
+	margin-top: 20px;
+	border-radius: 5px;
+	color: $light-gray;
+	background-color: red;
+	padding: 6px 14px;
+	text-align: center;
+	display: none;
+}
+
+
