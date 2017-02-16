@@ -10,8 +10,9 @@ var conn = require('../db');
 
 // setup route middlewares
 var csrfProtection = csrf({ cookie: true })
-var parseForm = bodyParser.urlencoded({ extended: false })
-
+var parseForm = bodyParser.urlencoded({ extended: false });
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
 
 /* GET home page. */
