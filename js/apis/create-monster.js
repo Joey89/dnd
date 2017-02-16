@@ -122,24 +122,7 @@ var monsterCreator = (function(){
 				attack = attack;
 				die = '2d';
 			}
-			charClass = {
-				type: 'Tank',
-				level: level,
-				atkBonus: Math.floor(Math.random() * (level*2) ) + 1 ,
-				xp: (hp) * (Math.floor(Math.random() * 5) + 5),
-				init: Math.floor(Math.random() * (level)) + 1,
-				speed: 4,
-				range: 1,
-				ac: ac,
-				flatFooted:  ac - Math.floor(Math.random() * 4),
-				touch: ac - Math.floor(Math.random() * 4),
-				fortitude: Math.floor(Math.random() * 5) + 1 +Math.floor(level/2),////
-				will: Math.floor(Math.random() * 3) + 1 + Math.floor(level/2),///
-				reflex: Math.floor(Math.random() * 2) + 1 + Math.floor(level/2),//
-				attacks: [die + attack],
-				loot: getRanLoot(level, hp),
-				img: getImage('Tank')
-			};
+			charClass = createTank(level, hp);
 		}
 		if((hp/level) >= 6 && (hp/level) < 8){
 			var attack = Math.floor( Math.random() * 8) + levelAtk;
@@ -151,24 +134,7 @@ var monsterCreator = (function(){
 				attack = attack;
 				die = '2d';
 			}
-			charClass = {
-				type: 'Fighter',
-				level: level,
-				atkBonus: Math.floor(Math.random() * (level*2) ) + 2,
-				xp: (hp) * (Math.floor(Math.random() * 5) + 5),
-				init: Math.floor(Math.random() * (level * 2)) + 2,
-				speed: 6,
-				range: 1,
-				ac:  ac,
-				flatFooted: ac - Math.floor(Math.random() * 4),
-				touch: ac - Math.floor(Math.random() * 4),
-				fortitude: Math.floor(Math.random() * 3) + 1 + Math.floor(level/2),///
-				will: Math.floor(Math.random() * 2) + 1 + Math.floor(level/2),//
-				reflex: Math.floor(Math.random() * 3) + 1 + Math.floor(level/2),///
-				attacks: [die + attack],
-				loot: getRanLoot(level, hp),
-				img: getImage('Fighter')
-			};
+			charClass = createFighter(level, hp);
 		}
 		if((hp/level) < 6){
 			var attack = Math.floor( Math.random() * 4) + levelAtk;
@@ -183,30 +149,10 @@ var monsterCreator = (function(){
 			//ran num check for mage or wizard or archer
 			//Ranger, Mage
 			var rando = Math.floor(Math.random() * 2);
-			charClass = {
-				type: 'Mage',
-				level: level,
-				atkBonus: Math.floor(Math.random() * (level*2) ) + 0,
-				spells: ['spells!'],
-				xp: (hp) * (Math.floor(Math.random() * 5) + 5),
-				init: Math.floor(Math.random() * (level * 2)) + 2,
-				speed: 6,
-				range: 1,
-				ac: ac,
-				flatFooted: ac - Math.floor(Math.random() * 4),
-				touch: ac - Math.floor(Math.random() * 4),
-				fortitude: Math.floor(Math.random() * 2) + 1 + Math.floor(level/2),//
-				will: Math.floor(Math.random() * 5) + 1 + Math.floor(level/2),////
-				reflex: Math.floor(Math.random() * 2) + 1 + Math.floor(level/2),//
-				attacks: [die + attack],
-				loot: getRanLoot(level, hp),
-				img: getImage('Mage')
-			};
+			charClass = createMage(level, hp);
 			if(rando!=0){
 				//type archer
-				charClass.type="Archer";
-				charClass.range="60";
-				charClass.img=getImage('Archer');
+				charClass = createArcher(level, hp);
 			}
 		}
 
