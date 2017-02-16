@@ -1,7 +1,45 @@
 body {
   background-color: #cfcfd1;
   font-family: 'Raleway', sans-serif;
-  font-weight: 500; }
+  font-weight: 500;
+  letter-spacing: 0.1em; }
+
+.text-center {
+  text-align: center;
+  width: 100%; }
+
+.home_header_img {
+  background-image: url("../images/dnd_monster_header.jpg");
+  height: 250px;
+  padding: 40px;
+  color: white; }
+  .home_header_img input[type="text"] {
+    color: #222; }
+
+.home_summoned_img {
+  background-image: url("../images/dnd_monster_summon.jpg");
+  height: 250px;
+  padding: 40px;
+  color: white; }
+  .home_summoned_img input[type="text"] {
+    color: #222; }
+
+.char_img_display {
+  margin: 10px;
+  text-align: center; }
+  .char_img_display img {
+    height: 250px; }
+
+.char_img_display_clicked img {
+  width: 100%;
+  height: 100%; }
+
+.small_img_monster {
+  margin: 10px; }
+  .small_img_monster img {
+    height: 100px;
+    width: 100px;
+    border-radius: 4px; }
 
 .clearfix {
   clear: both;
@@ -19,19 +57,19 @@ body {
 .statsContainerChar {
   margin-top: 40px;
   padding-top: 10px;
-  background: #888;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   box-sizing: border-box;
-  color: #e5e5e5;
+  color: #222;
   padding-bottom: 10px; }
 
 .statsContainerInput {
   margin-top: 40px;
   padding-top: 10px;
-  background: #888;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   box-sizing: border-box;
-  color: #e5e5e5;
+  color: #222;
   padding-bottom: 10px; }
   .statsContainerInput input[type=text] {
     color: #222; }
@@ -81,21 +119,21 @@ body {
 .back-btn {
   background-color: #032C6C;
   color: #e5e5e5;
-  padding: 4px 12px;
+  padding: 8px 16px;
   border-radius: 4px;
   font-weight: 700; }
 
 .edit-btn {
   background-color: #032C6C;
   color: #e5e5e5;
-  padding: 4px 12px;
+  padding: 8px 16px;
   border-radius: 4px;
   font-weight: 700; }
 
 .delete-btn {
   background-color: #b2103e;
   color: #e5e5e5;
-  padding: 4px 12px;
+  padding: 8px 16px;
   border-radius: 4px;
   font-weight: 700; }
 
@@ -107,20 +145,23 @@ body {
 
 .listMainContainer {
   margin: auto;
-  background-color: #888;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   box-sizing: border-box;
-  color: #e5e5e5;
+  color: #222;
   padding-bottom: 10px; }
   .listMainContainer h2 {
     padding: 20px; }
 
 .listMainDisplay {
   border: 1px solid black;
+  border-radius: 2px;
   margin-left: 1%; }
-  .listMainDisplay li a {
-    color: #2E4974;
-    font-size: 22px; }
+  .listMainDisplay li {
+    margin-left: -20px; }
+    .listMainDisplay li a {
+      color: #2E4974;
+      font-size: 22px; }
 
 .error_msg {
   margin-top: 20px;
@@ -130,5 +171,9 @@ body {
   padding: 6px 14px;
   text-align: center;
   display: none; }
+
+.align-right {
+  display: inline-block;
+  float: right; }
 
 /*# sourceMappingURL=style.css.map */

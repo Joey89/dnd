@@ -36,15 +36,31 @@ export default class MonsterFullSingle extends Component {
 			var mFort = monster.charClass.fortitude;
 			var mReflex = monster.charClass.reflex;
 			var mWill = monster.charClass.will;
+			var mImg =monster.charClass.img;
 
 		}
 		console.log(monster);
 		var backLink = "/MonsterFull/"+monster.name;
+		var imgString = '';
+		if(typeof mImg == 'string'){
+			//reg ex to match after _ for folder
+			var img_matcher = /^[^\_]*/g;
+			var img_folder = mImg.match(img_matcher);
+			imgString = "../images/monsters/" + img_folder +"/"+ mImg + ".jpg";
+
+			console.log('IMG Folder: ' + imgString);
+		}
 		return (
 			<div className="pretty-inputs">
 				<Link to={backLink} className="back-btn">Back</Link>
+				<span className="align-right">
+					<a href="/" className="back-btn">Home</a>
+				</span>
 				<form action="" method="POST">
-					<h1 className="statsTitle stats-main-title">{monster.name}</h1>
+					<h1 className="statsTitle stats-main-title">Editing Character:{monster.name}</h1>
+					<div className="char_img_display">
+						<img src={imgString}/>
+					</div>
 					<div className="caveatFont statsContainerInput">
 						
 						<input type="hidden" name="name" key={monster.name} defaultValue={monster.name}/>
@@ -81,6 +97,8 @@ export default class MonsterFullSingle extends Component {
 								<li>Will: <input type="text" name="will" key={mWill} defaultValue={mWill}  /></li>
 							</ul>
 							<div className="clearfix"></div>
+
+							
 						</div>
 					</div>
 					<div>

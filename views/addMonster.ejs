@@ -6,25 +6,38 @@
   </head>
   <body>
     <div class="monsterContainer">
-    <a href="/" class="back-btn">Back</a>
+    <div class="home_summoned_img">
+      <a href="/" class="back-btn">Back</a>
+    </div>
       <h1 class="statsTitle">Create New Monster Form Page</h1>
       <p class="statsTitle">
         All you have to do is add a name for your character and the specific level of the character.
       </p>
       <form method="post" action="/addMonster">
-        <div class="share50">
+        <div class="share30">
           Name:
           <input type="text" name="name" />
         </div>
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-        <div class="share50">
+        <div class="share30">
           Level:
           <input type="text" name="level"/>
         </div>
+        <div class="share30">
+          Character Type:
+          <select name="charType">
+            <option value="Tank">Random</option>
+            <option value="Tank">Tank</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Mage">Mage</option>
+            <option value="Archer">Archer</option>
+          </select>
+        </div>
+        <div class="clearfix"></div>
         <div class="">
           <input type="submit" class="btn btn-info" value="Add Monster"></input>
         </div>
-        <div class="clearfix"></div>
+        
       </form>
      
       </div>

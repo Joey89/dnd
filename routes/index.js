@@ -42,7 +42,7 @@ router.post('/addMonster', parseForm, csrfProtection, function(req, res) {
        	if (docs.length){
            res.send('Error Creating Because Name is Taken')
         }else{
-        	var monst = MonsterCreator.create(req.body.name, req.body.level);
+        	var monst = MonsterCreator.create(req.body.name, req.body.level, req.body.charType);
 		  	//Save monster to mongo db here then redirect? maybe to monster created page
 		  	var record = new MonsterSchema(monst);
 				record.save(function(err){
@@ -142,7 +142,7 @@ router.post('/MonsterEdit/:name', function(req, res, next) {
 			xp: monst.xp,
 			atkBonus: monst.atkBonus,
 			level: monst.level,
-			type: monst.type
+			type: monst.type,
 		},
 		hp: monst.hp ,
 		spells: monst.spells.split(', ')

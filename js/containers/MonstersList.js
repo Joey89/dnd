@@ -57,6 +57,7 @@ export default class MonsterList extends Component {
 					hp={item.hp}
 					ac={item.charClass.ac}
 					type={item.charClass.type}
+					img={item.charClass.img}
 				/>
 			);	
 		});

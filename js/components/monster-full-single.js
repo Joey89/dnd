@@ -2,6 +2,26 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default class MonsterFullSingle extends Component {
+	constructor(){
+		super();
+		this.state = { toggle: true };
+	}
+	toggleImageSize(){
+		console.log('heya');
+		var toggle = this.state.toggle;
+		if(this.state.toggle){
+			this.refs.char_img_display.className =  "char_img_display_clicked";
+			this.setState({
+				toggle: !toggle
+			});
+		}else{
+			this.refs.char_img_display.className =  "char_img_display";
+			this.setState({
+				toggle: !toggle
+			});
+		}
+		//e.target.className = "char_img_display_clicked";
+	}
 	render() {
 		var monster = '';
 		for(var key in this.props.monster.value){
@@ -35,14 +55,32 @@ export default class MonsterFullSingle extends Component {
 			var mReflex = monster.charClass.reflex;
 			var mWill = monster.charClass.will;
 
+			var mLoot = monster.charClass.loot;
+			var mImg = monster.charClass.img;
+
 		}
-		console.log(monster);
 		var monsterEditLink = "/MonsterEdit/"+monster.name;
+		var imgString = '';
+		if(typeof mImg == 'string'){
+			//reg ex to match after _ for folder
+			var img_matcher = /^[^\_]*/g;
+			var img_folder = mImg.match(img_matcher);
+			imgString = "../images/monsters/" + img_folder +"/"+ mImg + ".jpg";
+
+			console.log('IMG Folder: ' + imgString);
+		}
 		return (
 			<div>
 				<div>
 					<a href="../" className="back-btn">Back</a>
+					<span className="align-right">
+					<a href="/" className="back-btn">Home</a>
+				</span>
 					<h1 className="statsTitle stats-main-title">Character: {monster.name}</h1>
+					<div className="char_img_display" ref="char_img_display" onClick={this.toggleImageSize.bind(this)}>
+						<img src={imgString}/>
+					</div>
+					<div className="clearfix"></div>
 					<span className="share50">
 						<a href="#0" className="delete-btn" onClick={this.props.handleCharDelete.bind(this, monster.name)}>Delete Character</a>
 					</span>
@@ -68,6 +106,7 @@ export default class MonsterFullSingle extends Component {
 							<li>Attack Bonus: {mAtkBonus}</li>
 							<li>Attacks: {mAttacks1}</li>
 							<li>Spells: {mSpells1}</li>
+
 						</ul>
 
 						<ul className="share30">
@@ -82,8 +121,9 @@ export default class MonsterFullSingle extends Component {
 							<li>Will: {mWill}</li>
 						</ul>
 						<div className="clearfix"></div>
+						<div className="text-center"> Loot: {mLoot}</div>
 					</div>
-
+					
 				</div>
 			</div>
 		);

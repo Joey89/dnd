@@ -31,15 +31,17 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<h2 className="statsTitle" style={{margin: '50px'}}>D&D 3.5 Monster Create app</h2>
-				<div>
-				<span className="share50">
-				Filter Monsters by Level:
-				<input type="text" onChange={this.setLevel.bind(this)}/>
-				</span>
-				<span className="share50">
-					<a href='/addMonster' className="edit-btn">Add New Monster</a>
-				</span>
+				<div className="home_header_img">
+					<h2 className="statsTitle" style={{margin: '50px'}}>D&D 3.5 Monster Create app</h2>
+					<div>
+						<span className="share50">
+						Filter Monsters by Level:
+						<input type="text" onChange={this.setLevel.bind(this)}/>
+						</span>
+						<span className="share50">
+							<a href='/addMonster' className="edit-btn">Add New Monster</a>
+						</span>
+					</div>
 				</div>
 				<div className="clearfix"></div>
 				<span className="error_msg" ref="error_msg"></span>
