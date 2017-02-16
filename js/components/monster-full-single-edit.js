@@ -63,9 +63,9 @@ export default class MonsterFullSingle extends Component {
 					</div>
 					<div className="caveatFont statsContainerInput">
 						
-						<input type="hidden" name="name" key={monster.name} defaultValue={monster.name}/>
-						<input type="hidden" name="mImg" key={monster.mImg} defaultValue={monster.mImg}/>
-						<input type="hidden" name="loot" key={mLoot} defaultValue={mLoot}/>
+						<input type="hidden" name="name" key={monster.name} value={monster.name}/>
+						<input type="hidden" name="mImg" key={monster.mImg} value={mImg}/>
+						<input type="hidden" name="loot" key={mLoot} value={mLoot}/>
 						<h4 className="longer-pretty-inputs">
 							<span className="share50">
 							Level: <input type="text" name="level" key={mLevel} defaultValue={mLevel}/>
