@@ -4,7 +4,7 @@
   "private": true,
   "main": "webpack.config.js",
   "scripts": {
-    "start": "node ../bin/www",
+    "start": "node server.js",
     "startt": "nodemon ./bin/www",
     "test": "mocha --compilers js:babel-register",
     "web": "webpack-dev-server --content-base src --inline --hot"
