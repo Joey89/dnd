@@ -144,6 +144,7 @@ router.post('/MonsterEdit/:name', function(req, res, next) {
 			atkBonus: monst.atkBonus,
 			level: monst.level,
 			type: monst.type,
+			img: monst.img
 		},
 		hp: monst.hp ,
 		spells: monst.spells.split(', ')
