@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import htmlspecialchars from 'htmlspecialchars';
 
 export default class MonsterListItem extends Component {
 	constructor(){
 		super();
 	}
 	render() {
-		var LinkName = "/monsterFull/" + this.props.name;
+		var LinkName = "/monsterFull/" + htmlspecialchars(this.props.name);
 		var imgString = '';
-		var mImg = this.props.img;
+		var mImg = htmlspecialchars(this.props.img);
 		if(typeof mImg == 'string'){
 			//reg ex to match after _ for folder
 			var img_matcher = /^[^\_]*/g;
@@ -21,12 +22,12 @@ export default class MonsterListItem extends Component {
 		return (
 			<ul className="share30 listMainDisplay">
 					<li><Link to={LinkName}>
-				{this.props.name} </Link></li>
+				{htmlspecialchars(this.props.name)} </Link></li>
 				<li className="small_img_monster"><img src={imgString} /></li>
-					<li>Lvl: {this.props.level}</li>
-					<li>Hp: {this.props.hp}</li>
-					<li>AC: {this.props.ac}</li>
-					<li>Character: { this.props.type }</li>
+					<li>Lvl: {htmlspecialchars(this.props.level)}</li>
+					<li>Hp: {htmlspecialchars(this.props.hp)}</li>
+					<li>AC: {htmlspecialchars(this.props.ac)}</li>
+					<li>Character: { htmlspecialchars(this.props.type )}</li>
 					
 			</ul>
 		);

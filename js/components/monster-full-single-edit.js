@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import htmlspecialchars from 'htmlspecialchars';
 
 export default class MonsterFullSingle extends Component {
 	componentWillMount(){
@@ -8,39 +9,39 @@ export default class MonsterFullSingle extends Component {
 		var monster = '';
 		for(var key in this.props.monster.value){
 			monster = this.props.monster.value[key]
-			var mLevel = monster.charClass.level;
-			var mType = monster.charClass.type
-			var mHp = monster.hp;
-			var mInit = monster.charClass.init;
-			var mRange =  monster.charClass.range;
-			var mSpeed =  monster.charClass.speed;
-			var mAtkBonus = monster.charClass.atkBonus;
-			var mXp = monster.charClass.xp;
+			var mLevel = htmlspecialchars(monster.charClass.level);
+			var mType = htmlspecialchars(monster.charClass.type);
+			var mHp =htmlspecialchars( monster.hp);
+			var mInit = htmlspecialchars(monster.charClass.init);
+			var mRange =  htmlspecialchars(monster.charClass.range);
+			var mSpeed =  htmlspecialchars(monster.charClass.speed);
+			var mAtkBonus = htmlspecialchars(monster.charClass.atkBonus);
+			var mXp = htmlspecialchars(monster.charClass.xp);
 			if(monster.charClass.attacks){
-				var mAttacks1 = monster.charClass.attacks.join(', ');
+				var mAttacks1 = htmlspecialchars(monster.charClass.attacks.join(', '));
 			}else{
 				var mAttacks1 = 'None';
 			}
 			if(monster.charClass.spells){
-				var mSpells1 = monster.charClass.spells.join(', ');
+				var mSpells1 = htmlspecialchars(monster.charClass.spells.join(', '));
 
 			}else{
 				var mSpells1 = 'None';
 			}
 			
-			var mLoot = monster.charClass.loot;
-			var mAc = monster.charClass.ac;
-			var mFF = monster.charClass.flatFooted;
-			var mTouch = monster.charClass.touch;
+			var mLoot = htmlspecialchars(monster.charClass.loot);
+			var mAc = htmlspecialchars(monster.charClass.ac);
+			var mFF = htmlspecialchars(monster.charClass.flatFooted);
+			var mTouch = htmlspecialchars(monster.charClass.touch);
 
-			var mFort = monster.charClass.fortitude;
-			var mReflex = monster.charClass.reflex;
-			var mWill = monster.charClass.will;
-			var mImg =monster.charClass.img;
+			var mFort = htmlspecialchars(monster.charClass.fortitude);
+			var mReflex = htmlspecialchars(monster.charClass.reflex);
+			var mWill = htmlspecialchars(monster.charClass.will);
+			var mImg =htmlspecialchars(monster.charClass.img);
 
 		}
 		console.log(monster);
-		var backLink = "/MonsterFull/"+monster.name;
+		var backLink = "/MonsterFull/"+ htmlspecialchars(monster.name);
 		var imgString = '';
 		if(typeof mImg == 'string'){
 			//reg ex to match after _ for folder
@@ -57,13 +58,13 @@ export default class MonsterFullSingle extends Component {
 					<a href="/" className="back-btn">Home</a>
 				</span>
 				<form action="" method="POST">
-					<h1 className="statsTitle stats-main-title">Editing Character:{monster.name}</h1>
+					<h1 className="statsTitle stats-main-title">Editing Character:{htmlspecialchars(monster.name)}</h1>
 					<div className="char_img_display">
 						<img src={imgString}/>
 					</div>
 					<div className="caveatFont statsContainerInput">
 						
-						<input type="hidden" name="name" key={monster.name} value={monster.name}/>
+						<input type="hidden" name="name" key={htmlspecialchars(monster.name)} value={htmlspecialchars(monster.name)}/>
 						<input type="hidden" name="img" key={mImg} value={mImg}/>
 						<input type="hidden" name="loot" key={mLoot} value={mLoot}/>
 						<h4 className="longer-pretty-inputs">

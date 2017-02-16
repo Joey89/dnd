@@ -10,7 +10,7 @@ body {
 
 .home_header_img {
   background-image: url("../images/dnd_monster_header.jpg");
-  height: 250px;
+  height: 350px;
   padding: 40px;
   color: white; }
   .home_header_img input[type="text"] {
@@ -18,7 +18,7 @@ body {
 
 .home_summoned_img {
   background-image: url("../images/dnd_monster_summon.jpg");
-  height: 250px;
+  height: 350px;
   padding: 40px;
   color: white; }
   .home_summoned_img input[type="text"] {
@@ -175,5 +175,45 @@ body {
 .align-right {
   display: inline-block;
   float: right; }
+
+@media screen and (max-width: 950px) {
+  .monsterContainer {
+    width: 100%; } }
+@media screen and (max-width: 720px) {
+  .monsterContainer {
+    width: 100%; }
+
+  .share50 {
+    display: block;
+    width: 100%; }
+    .share50 input[type="text"] {
+      margin: 10px; }
+
+  .share30 {
+    display: block;
+    width: 100%; }
+    .share30 input[type="text"] {
+      margin: 10px; }
+
+  .share30right {
+    display: block;
+    width: 100%;
+    text-align: center; }
+    .share30right ul li input[type="text"] {
+      margin: 10px;
+      width: 200px;
+      padding: 5px; }
+
+  .delete-btn {
+    display: block;
+    margin: 10px; }
+
+  .edit-btn {
+    display: block;
+    margin: 10px; }
+
+  .statsContainerChar ul li {
+    text-align: center;
+    margin-left: -40px; } }
 
 /*# sourceMappingURL=style.css.map */

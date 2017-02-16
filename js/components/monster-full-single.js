@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import htmlspecialchars from 'htmlspecialchars';
 
 export default class MonsterFullSingle extends Component {
 	constructor(){
@@ -25,41 +26,41 @@ export default class MonsterFullSingle extends Component {
 	render() {
 		var monster = '';
 		for(var key in this.props.monster.value){
-			monster = this.props.monster.value[key]
-			var mLevel = monster.charClass.level;
-			var mType = monster.charClass.type
-			var mHp = monster.hp;
-			var mInit = monster.charClass.init;
-			var mRange =  monster.charClass.range;
-			var mSpeed =  monster.charClass.speed;
-			var mAtkBonus = monster.charClass.atkBonus;
-			var mXp = monster.charClass.xp;
+			monster = this.props.monster.value[key];
+			var mLevel = htmlspecialchars(monster.charClass.level);
+			var mType = htmlspecialchars(monster.charClass.type);
+			var mHp = htmlspecialchars(monster.hp);
+			var mInit = htmlspecialchars(monster.charClass.init);
+			var mRange =  htmlspecialchars(monster.charClass.range);
+			var mSpeed =  htmlspecialchars(monster.charClass.speed);
+			var mAtkBonus = htmlspecialchars(monster.charClass.atkBonus);
+			var mXp = htmlspecialchars(monster.charClass.xp);
 			if(monster.charClass.attacks){
-				var mAttacks1 = monster.charClass.attacks.join(', ');
+				var mAttacks1 = htmlspecialchars(monster.charClass.attacks.join(', '));
 			}else{
 				var mAttacks1 = 'None';
 			}
 			if(monster.charClass.spells){
-				var mSpells1 = monster.charClass.spells.join(', ');
+				var mSpells1 = htmlspecialchars(monster.charClass.spells.join(', '));
 
 			}else{
 				var mSpells1 = 'None';
 			}
 			
 
-			var mAc = monster.charClass.ac;
-			var mFF = monster.charClass.flatFooted;
-			var mTouch = monster.charClass.touch;
+			var mAc = htmlspecialchars(monster.charClass.ac);
+			var mFF = htmlspecialchars(monster.charClass.flatFooted);
+			var mTouch = htmlspecialchars(monster.charClass.touch);
 
-			var mFort = monster.charClass.fortitude;
-			var mReflex = monster.charClass.reflex;
-			var mWill = monster.charClass.will;
+			var mFort = htmlspecialchars(monster.charClass.fortitude);
+			var mReflex = htmlspecialchars(monster.charClass.reflex);
+			var mWill = htmlspecialchars(monster.charClass.will);
 
-			var mLoot = monster.charClass.loot;
-			var mImg = monster.charClass.img;
+			var mLoot = htmlspecialchars(monster.charClass.loot);
+			var mImg =htmlspecialchars( monster.charClass.img);
 
 		}
-		var monsterEditLink = "/MonsterEdit/"+monster.name;
+		var monsterEditLink = "/MonsterEdit/"+ htmlspecialchars(monster.name);
 		var imgString = '';
 		if(typeof mImg == 'string'){
 			//reg ex to match after _ for folder
@@ -76,13 +77,13 @@ export default class MonsterFullSingle extends Component {
 					<span className="align-right">
 					<a href="/" className="back-btn">Home</a>
 				</span>
-					<h1 className="statsTitle stats-main-title">Character: {monster.name}</h1>
+					<h1 className="statsTitle stats-main-title">Character: {htmlspecialchars(monster.name)}</h1>
 					<div className="char_img_display" ref="char_img_display" onClick={this.toggleImageSize.bind(this)}>
 						<img src={imgString}/>
 					</div>
 					<div className="clearfix"></div>
 					<span className="share50">
-						<a href="#0" className="delete-btn" onClick={this.props.handleCharDelete.bind(this, monster.name)}>Delete Character</a>
+						<a href="#0" className="delete-btn" onClick={this.props.handleCharDelete.bind(this, htmlspecialchars(monster.name))}>Delete Character</a>
 					</span>
 					<span className="share50">
 						<Link className="edit-btn" to={monsterEditLink}>Edit Character</Link>

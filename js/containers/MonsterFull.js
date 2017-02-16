@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import htmlspecialchars from 'htmlspecialchars';
 import * as actionCreators from '../actions/monster-actions';
 import MonsterFullSingle from '../components/monster-full-single';
 
@@ -23,14 +23,14 @@ export default class monsterFull extends Component {
 		var t = confirm('Are you sure you wish to delete?');
 		if(t){
 			//Delete Char
-			this.props.actions.deleteMonsterByName(mName);
+			this.props.actions.deleteMonsterByName(htmlspecialchars(mName));
 			window.location.href = '/';
 		}
 	}
 
 	initFindMonsterByName(){
 		var self=this;
-		var monsterByName = this.props.actions.getMonsterByName(this.props.routeParams.name);
+		var monsterByName = this.props.actions.getMonsterByName(htmlspecialchars(this.props.routeParams.name));
 		monsterByName.then(
 			function(monsters){
 				self.setState({
